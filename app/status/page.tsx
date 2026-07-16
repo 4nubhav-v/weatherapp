@@ -21,7 +21,7 @@ export default function Status() {
 
   return (
     <div className="m-12 flex flex-col items-center">
-      <div className="mx-128 flex max-w-128 flex-col gap-8 rounded-lg bg-red-700 p-8">
+      <div className="mx-128 flex max-w-lg flex-col gap-8 rounded-lg bg-red-700 p-8">
         <p>{new Date().toLocaleDateString("en-IN")}</p>
         {temperature ? (
           <div className="flex items-end">

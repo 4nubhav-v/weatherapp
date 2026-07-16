@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "motion/react";
 
 const info = [
   {
@@ -30,11 +31,21 @@ const info = [
 function Faqs() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div>
-      <h1 className="m-8 p-8 text-6xl tracking-tight text-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      className="relative z-10"
+    >
+      <motion.h1
+        initial={{ opacity: 0, y: 10, filter: "blur(2px)" }}
+        animate={{ y: 0, opacity: 1, filter: "none" }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="m-8 p-8 text-center text-6xl tracking-tight"
+      >
         Frequently asked questions
-      </h1>
-      <div className="flex flex-col gap-4 rounded-md bg-white p-10 text-black">
+      </motion.h1>
+      <div className="flex flex-col gap-4 rounded-md bg-black p-10 text-white">
         {info.map((items) => {
           return (
             <div key={items.id} className="mb-4 flex flex-col gap-4">
@@ -71,7 +82,7 @@ function Faqs() {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

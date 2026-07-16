@@ -64,7 +64,7 @@ const getFooterUrl = () => {
 const Footer = () => {
   return (
     <div>
-      <div className="flex items-center justify-between bg-white p-10 text-black">
+      <div className="relative z-10 flex items-center justify-between bg-black p-10 text-white">
         <div className="flex max-w-2xl flex-col gap-4">
           {" "}
           <p>logo</p>
@@ -83,6 +83,9 @@ const Footer = () => {
         Copyright © {new Date().getFullYear()} Your Company. All rights
         reserved.
       </h1>
+      <a className="relative z-10" href="mailto:4nubhav@proton.me">
+        Email Me
+      </a>
     </div>
   );
 };
