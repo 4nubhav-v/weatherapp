@@ -38,7 +38,7 @@ function Header() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <NavbarButton variant="primary">Github</NavbarButton>
           </div>
         </NavBody>
 
@@ -79,7 +79,7 @@ function Header() {
                 variant="primary"
                 className="w-full"
               >
-                Book a call
+                Github
               </NavbarButton>
             </div>
           </MobileNavMenu>
