@@ -1,3 +1,4 @@
+import { number } from "motion";
 import { weatherData } from "./Weather";
 
 function degToCompass(deg: number) {
@@ -33,10 +34,8 @@ function uvLabel(uv: number) {
 export default function Status() {
   const { current, daily, hourly } = weatherData;
   const weatherForcastTemp = hourly.temperature_2m;
-  console.log(weatherForcastTemp);
   const isDay = current.is_day === 1;
   const temp = current.temperature_2m.toFixed(1);
-  const uv = daily.uv_index_max[0];
   const windDeg = current.wind_direction_10m;
   const windSpeed = current.wind_speed_10m.toFixed(2);
   const humidity = Math.round(current.relative_humidity_2m);
@@ -143,8 +142,6 @@ export default function Status() {
             </div>
             <div className="mt-1">
               <span className="opacity-60">UV </span>
-              <span className="font-semibold">{uv.toFixed(1)}</span>
-              <span className="ml-1 text-xs opacity-60">({uvLabel(uv)})</span>
             </div>
           </div>
         </div>
