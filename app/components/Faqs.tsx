@@ -1,45 +1,55 @@
 import React, { useState } from "react";
+import { motion } from "motion/react";
 
 const info = [
   {
     id: 0,
-    questions: "Question1",
+    questions: "What all tech related tools are used ?",
     answer:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "It uses React for frontend, Nextjs for react Framework, tailwindcss for styling, and Motion for animations ",
   },
   {
     id: 1,
-    questions: "Question2",
+    questions: "What api it use to fetch the temperature ?",
     answer:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "It use openmetro api to fetch the current temperature, humdity, UI Index, ",
   },
   {
     id: 2,
-    questions: "Question3",
-    answer:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: 3,
-    questions: "Question4",
-    answer:
-      "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    questions: "Is this hardcoded ?",
+    answer: "No.",
   },
 ];
 
 function Faqs() {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <div>
-      <h1 className="m-8 p-8 text-6xl tracking-tight text-center">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className="h-7xl relative z-10 w-screen"
+    >
+      <motion.h1
+        initial={{ opacity: 0, y: 10, filter: "blur(2px)" }}
+        animate={{ y: 0, opacity: 1, filter: "none" }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        className="mb-48 p-8 text-center text-6xl font-bold tracking-tight [text-shadow:0_4px_8px_rgba(0_0_0/0.2)] dark:[text-shadow:0_4px_8px_rgba(255_255_255/0.4)]"
+      >
         Frequently asked questions
-      </h1>
-      <div className="flex flex-col gap-4 rounded-md bg-white p-10 text-black">
+      </motion.h1>
+      <div className="flex flex-col gap-10 rounded-md bg-white p-10 text-black dark:bg-black dark:text-white">
         {info.map((items) => {
           return (
-            <div key={items.id} className="mb-4 flex flex-col gap-4">
+            <div
+              key={items.id}
+              className="mb-4 flex flex-1 flex-col gap-10 px-1 md:px-36"
+            >
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl">{items.questions}</h2>
+                <h2 className="text-2xl font-semibold tracking-tight text-black dark:text-neutral-200">
+                  {items.questions}
+                </h2>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -66,12 +76,14 @@ function Faqs() {
                   )}
                 </svg>
               </div>
-              {open === items.id && <p className="">{items.answer}</p>}
+              {open === items.id && (
+                <p className="text-neutral-400">{items.answer}</p>
+              )}
             </div>
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

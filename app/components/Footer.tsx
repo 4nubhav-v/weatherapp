@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 const footerUrl = [
   {
     id: 0,
@@ -43,7 +44,10 @@ const footerUrl = [
 
 const getFooterUrl = () => {
   return footerUrl.map((item) => (
-    <div key={item.id} className="flex w-24 max-w-4xl flex-col gap-2 px-24">
+    <div
+      key={item.id}
+      className="flex max-w-4xl flex-col gap-2 px-4 md:w-24 md:px-12 lg:px-24"
+    >
       <h3 className="text-normal mb-4 font-semibold">{item.title}</h3>
       <ul>
         {item.subtitle.map((subItem) => (
@@ -64,25 +68,36 @@ const getFooterUrl = () => {
 const Footer = () => {
   return (
     <div>
-      <div className="flex items-center justify-between bg-white p-10 text-black">
-        <div className="flex max-w-2xl flex-col gap-4">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className="relative z-10 flex flex-col items-center justify-between bg-white p-10 text-black md:flex-row dark:bg-black dark:text-white"
+      >
+        <div className="flex flex-col gap-4 md:max-w-2xl">
           {" "}
-          <p>logo</p>
+          <p className="text-center md:text-left">logo</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
             laboriosam voluptatum odit maiores voluptatem consequuntur ratione,
             cupiditate reiciendis cum voluptate, assumenda labore ex enim id
             consectetur ducimus repellendus ea quos!
           </p>
-          <p>icons</p>
+          <p className="text-center md:text-left">icons</p>
         </div>
-        <div className="flex flex-row gap-4">{getFooterUrl()}</div>
-      </div>
-      <hr className="mt-24 mb-10 bg-gray-300" />
-      <h1>
+        <div className="flex flex-row md:gap-4">{getFooterUrl()}</div>
+      </motion.div>
+      <hr className="mt-25 mb-10 bg-gray-300" />
+      <h1 className="text-center md:text-left">
         Copyright © {new Date().getFullYear()} Your Company. All rights
         reserved.
       </h1>
+      <a
+        className="relative z-10 text-center md:text-left"
+        href="mailto:4nubhav@proton.me"
+      >
+        Email Me
+      </a>
     </div>
   );
 };
