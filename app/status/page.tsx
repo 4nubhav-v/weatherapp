@@ -1,4 +1,3 @@
-import { number } from "motion";
 import { weatherData } from "./Weather";
 
 function degToCompass(deg: number) {

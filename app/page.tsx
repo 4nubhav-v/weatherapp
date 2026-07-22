@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Faqs from "./components/Faqs";
 import Header from "./components/Header";
@@ -15,8 +14,9 @@ import { IconExclamationCircle } from "@tabler/icons-react";
 import myScreenshot from "@/app/assets/Screenshot_20260716_154345.png";
 
 export default function Home() {
+
   return (
-    <div className="w-full bg-white selection:bg-black selection:text-white dark:bg-black">
+    <div className="w-full bg-white selection:bg-black selection:text-white dark:bg-black dark:selection:bg-white dark:selection:text-black">
       <div className="relative flex min-h-screen w-full flex-col items-center justify-start overflow-hidden rounded-md px-4 py-4">
         <BackgroundRippleEffect />
         <Header />
@@ -28,9 +28,9 @@ export default function Home() {
               transition={{ duration: 0.3 }}
               className="relative z-10 mx-auto max-w-4xl items-baseline justify-center text-center text-2xl font-bold tracking-tight text-neutral-800 [text-shadow:0_4px_8px_rgba(0_0_0/0.2)] md:text-4xl lg:text-7xl dark:text-neutral-100 dark:[text-shadow:0_4px_8px_rgba(255_255_255/0.4)]"
             >
-              Get the Weather reports on one
+              Get the weather reports on one
               <CanvasText
-                text="click"
+                text="Click"
                 className="m-2 text-9xl [text-shadow:0_4px_8px_rgba(0_0_0/0.2)] md:text-4xl lg:m-4 lg:text-7xl dark:[text-shadow:0_4px_8px_rgba(255_255_255/0.4)]"
                 backgroundClassName="bg-neutral-800"
                 colors={[

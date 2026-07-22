@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useTheme } from "next-themes";
 import {
   Navbar,
   NavBody,
@@ -28,16 +29,25 @@ function Header() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="relative z-50 w-full">
       <Navbar>
         {/* Desktop Navigation */}
+
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
+            <NavbarButton
+              variant="secondary"
+              onClick={() => {
+                theme === "dark" ? setTheme("light") : setTheme("dark");
+              }}
+            >
+              Toogle Theme
+            </NavbarButton>
             <NavbarButton variant="primary">Github</NavbarButton>
           </div>
         </NavBody>
